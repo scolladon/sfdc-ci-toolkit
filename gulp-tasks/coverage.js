@@ -7,7 +7,7 @@ const PLUGIN_NAME = 'gulp-sfdc-' + scriptName;
 const OUTPUT_COVERAGE = 'coverage.json'
 
 module.exports = (gulp, plugins,options) => {
-  return (cb) => {
+  return cb => {
     if(options.testLevel === 'NoTestRun') {
       return cb();
     }
