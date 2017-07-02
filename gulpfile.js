@@ -19,7 +19,7 @@ const fs = require('fs');
 
 const TASK_PATH = './gulp-tasks/'
 
-const lastParameters = [gulp,plugins,options,TASK_PATH];
+const lastParameters = [gulp,plugins,options];
 
 fs.readdirSync(TASK_PATH).forEach(task => gulp.task(task, getTask([task,...lastParameters])));
 
