@@ -9,13 +9,13 @@ Windows is not tested.
 ### Installing
 
 ```
-npm install -g sfdc-ci-toolkit
+npm install sfdc-ci-toolkit
 ```
 
 or
 
 ```
-yarn globally add sfdc-ci-toolkit
+yarn add sfdc-ci-toolkit
 ```
 
 ## Usage
@@ -34,6 +34,7 @@ yarn globally add sfdc-ci-toolkit
 * [envalid](https://github.com/af/envalid) - Environment variable validation for Node.js.
 * [gulp](https://github.com/gulpjs/gulp) - The streaming build system.
 * [gulp-jsforce-exec-anon](https://github.com/scolladon/gulp-jsforce-exec-anon) - Execute anonymous using JSforce.
+* [gulp-load-plugins](https://github.com/jackfranklin/gulp-load-plugins) - Automatically load in gulp plugins.
 * [gulp-rename](https://github.com/hparra/gulp-rename) - Rename files easily.
 * [gulp-util](https://github.com/gulpjs/gulp-util) - Utilities for gulp plugins.
 * [gulp-zip](https://github.com/sindresorhus/gulp-zip) - ZIP compress files.

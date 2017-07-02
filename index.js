@@ -1,4 +1,5 @@
 // TODO :
+// 0 Retrieve plugin
 // 1 CodeCoverage (coverall)
 // 2 Rollback deployment plugin
 // 3 spread plugin on there own file
@@ -14,17 +15,12 @@ const plugins = require('gulp-load-plugins')({
     'gulp-jsforce-exec-anon': 'execAnon'
   }
 });
+const fs = require('fs');
 
-const lastParameters = [gulp,plugins,options],
+const TASK_PATH = './gulp-tasks/'
 
-[
-  'deploy',
-  'coverage',
-  'pre-deploy-script',
-  'post-deploy-script',
-  'generate-package',
-  'prepare-package',
-  'profile-reconciliation',
-  'profile-completion',
-  'prepare-runtests'
-].forEach(task => gulp.task(task, getTask([task,...lastParameters])))
+const lastParameters = [gulp,plugins,options,TASK_PATH],
+
+fs.readdirSync(TASK_PATH).forEach(task => gulp.task(task, getTask([task,...lastParameters])));
+
+module.exports = gulp;
