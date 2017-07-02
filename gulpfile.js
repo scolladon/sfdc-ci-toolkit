@@ -16,11 +16,13 @@ const plugins = require('gulp-load-plugins')({
   }
 });
 const fs = require('fs');
+const path = require('path');
 
 const TASK_PATH = './gulp-tasks/'
 
 const lastParameters = [gulp,plugins,options];
 
-fs.readdirSync(TASK_PATH).forEach(task => gulp.task(task, getTask([task,...lastParameters])));
-
-module.exports = gulp;
+fs.readdirSync(TASK_PATH).forEach(file => {
+  const task = path.basename(file, path.extname(file));
+  gulp.task(task, getTask([task,...lastParameters]))
+});
