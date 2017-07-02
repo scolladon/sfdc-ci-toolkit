@@ -1,5 +1,5 @@
 # sfdc-ci-toolkit
-Script repository to CI Salesforce projects
+Scripts repository to CI Salesforce projects
 
 ## Getting Started
 
