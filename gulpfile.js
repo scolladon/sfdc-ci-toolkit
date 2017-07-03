@@ -26,3 +26,5 @@ fs.readdirSync(TASK_PATH).forEach(file => {
   const task = path.basename(file, path.extname(file));
   gulp.task(task, getTask([task,...lastParameters]))
 });
+
+module.exports = gulp;
