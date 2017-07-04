@@ -165,7 +165,8 @@ Just create a js file in the gulp-tasks folder following this canvas
 ```javascript
 // Include whatever you need
 
-module.exports = (gulp pluginsoptions) => {
+module.exports = (gulp plugins, options) => {
+  // use the options object (it contains all the paramters from .env file)
   return cb => {
     gulp.src('a glob pattern')
     .pipe(plugins.yourPluginName()) 
