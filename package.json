@@ -31,7 +31,7 @@
   "dependencies": {
     "envalid": "^3.1.1",
     "gulp": "^3.9.1",
-    "gulp-jsforce-exec-anon": "^1.0.2",
+    "gulp-jsforce-exec-anon": "^1.1.0",
     "gulp-load-plugins": "^1.5.0",
     "gulp-rename": "^1.2.2",
     "gulp-util": "^3.0.8",
