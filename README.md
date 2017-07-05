@@ -132,6 +132,7 @@ If you want to fetch the coverage from the deployment (works better with a RunLo
 ```
 $ npm run coverage # Or if you have gulp globally installed: $ gulp coverage
 ```
+you will get a the coverage to the lcov format in the file 'coverage.json' into the sfdc-ci-toolkit folder
 
 You are ready to package your branch and merge it where you want (follow you development process) !
 After having merged the dev, you are ready to deploy. Change the SF_CHECKONLY to false.
