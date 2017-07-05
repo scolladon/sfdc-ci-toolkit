@@ -10,8 +10,9 @@ Windows is not tested.
 
 ```
 cd /your/sfdc/repo
-npm install sfdc-ci-toolkit
+git clone https://github.com/scolladon/sfdc-ci-toolkit.git
 ```
+then you can either remove .git folder or add it as a submodule of your sfdc repo
 
 It comes with handy npm scripts for CI :
 ```javascript
