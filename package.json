@@ -1,7 +1,7 @@
 {
   "name": "sfdc-ci-toolkit",
   "version": "1.0.1",
-  "description": "Scripts repository to CI Salesforce projects",
+  "description": "CI Scripts for Salesforce projects",
   "keyword": [
     "salesforce",
     "CI",
