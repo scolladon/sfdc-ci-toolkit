@@ -7,6 +7,7 @@ Is has been designed and built to be fast, modular and to run with just npm as d
 
 You can make it run into a basic alpine-node docker image.
 You can easily add a taks to this script for your own needs.
+Compatible and complementary to SalesforceDX
 
 
 ## Getting Started
