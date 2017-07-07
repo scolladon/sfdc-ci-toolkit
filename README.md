@@ -24,6 +24,9 @@ $ git clone https://github.com/scolladon/sfdc-ci-toolkit.git
 # Or :
 $ wget http://github.com/scolladon/sfdc-ci-toolkit/archive/master.zip
 $ unzip master.zip
+
+# Then :
+$ npm install
 ```
 then you can either remove .git folder or add it as a submodule of your sfdc repo
 
