@@ -47,15 +47,17 @@ SFDC-ci-toolkit comes with handy npm scripts for CI :
   "coverage": "gulp coverage",
   "profile-completion": "gulp profile-completion",
   "profile-reconciliation": "gulp profile-reconciliation",
-  "generate-package": "gulp generate-package"
+  "generate-package": "gulp generate-package",
+  "generate-data-dictionary": "gulp generate-data-dictionary"
 }
 ```
 Combined them smartly according to your need as a developer or as a release manager ;)
 
-Here is the list of scripts with their description available in the toolkit 
+Here is the list of scripts with their description available in the toolkit
 * **coverage** : Run it just after having deployed with the RunLocalTests. It will gather the coverage and translate it to lcov format into coverage.json file
 * **deploy** : Run it to deploy your repo to Salesforce
 * **generate-package** : Run it to generate your package.xml from your repository
+* **generate-data-dictionary** : Run it to generate your data dictionary from your Salesforce org
 * **pre-deploy-script** : Run it to run execute anonymous each script files contained into PRE_SCRIPT_PATH variable
 * **post-deply-script** : Run it to run execute anonymous each script files contained into POST_SCRIPT_PATH variable
 * **prepare-package** : Run it to generate package.xml and destructiveChanges.xml by diffing the HEAD commit and the commit sha into COMMIT variable
@@ -268,6 +270,8 @@ Here is the list of optional parameters with their default value :
 * SF_ROLLBACKONERROR : (boolean) used in deploy. Default: true
 * SF_SINGLEPACKAGE : (boolean) used in deploy. Default: true
 * SF_VERBOSE : (boolean) used in deploy. Default: true
+* SF_PROJECT : project name (string) used in data dictionary filename prefix
+* SF_CUSTOMOBJECTS : (boolean) used in data dictionary. Default: true
 
 ## How to add/modify Task
 
@@ -280,7 +284,7 @@ module.exports = (gulp plugins, options) => {
   // use the options object (it contains all the paramters from .env file)
   return cb => {
     gulp.src('a glob pattern')
-    .pipe(plugins.yourPluginName()) 
+    .pipe(plugins.yourPluginName())
     .pipe(gulp.dest('/a/dest/path'));
   };
 };
@@ -302,6 +306,7 @@ module.exports = (gulp plugins, options) => {
 * [sfdc-pps-completion](https://github.com/scolladon/sfdc-pps-completion) - Profile & Permission Set user permission completion.
 * [sfdc-pps-reconciliation](https://github.com/scolladon/sfdc-pps-reconciliation) - Display inconsistency between sources and profile & permission set.
 * [sfdc-specified-test](https://github.com/scolladon/sfdc-specified-test) - Salesforce specified test generation.
+* [sfdc-generate-data-dictionary](https://github.com/gavignon/sfdc-generate-data-dictionary) - Generate data dictionary from a Salesforce Org.
 
 ## Versioning
 

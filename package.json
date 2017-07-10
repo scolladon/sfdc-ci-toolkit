@@ -26,7 +26,8 @@
     "coverage": "gulp coverage",
     "profile-completion": "gulp profile-completion",
     "profile-reconciliation": "gulp profile-reconciliation",
-    "generate-package": "gulp generate-package"
+    "generate-package": "gulp generate-package",
+    "generate-data-dictionary": "gulp generate-data-dictionary"
   },
   "dependencies": {
     "envalid": "^3.1.1",
@@ -38,6 +39,7 @@
     "gulp-zip": "^4.0.0",
     "jsforce-metadata-tools": "^1.2.2",
     "sfdc-generate-codeclimate-coverage": "^1.0.5",
+    "sfdc-generate-data-dictionary": "^1.0.1",
     "sfdc-generate-package": "^2.0.1",
     "sfdc-git-package": "^2.0.1",
     "sfdc-pps-completion": "^1.0.2",
