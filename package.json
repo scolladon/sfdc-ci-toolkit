@@ -15,7 +15,7 @@
   "license": "MIT",
   "scripts": {
     "full-build": "npm run deploy",
-    "postfull-build": "nom run move-tag",
+    "postfull-build": "npm run move-tag",
     "predeploy": "gulp pre-deploy-script",
     "deploy": "gulp deploy",
     "postdeploy": "gulp post-deploy-script",
