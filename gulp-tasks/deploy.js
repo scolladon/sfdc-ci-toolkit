@@ -5,7 +5,7 @@ module.exports = (gulp, plugins,options) => {
   return cb => {
     gulp.src(options.src+'/**')
     .pipe(plugins.zip('pkg.zip'))
-    .pipe(forceDeploy(options))
+    .pipe(forceDeploy(options).on('error',cb))
     .pipe(plugins.rename(DEPLOY_RESULT_FILE))
     .pipe(gulp.dest('.'));
   };
