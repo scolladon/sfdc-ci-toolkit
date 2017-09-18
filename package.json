@@ -41,7 +41,7 @@
     "sfdc-generate-codeclimate-coverage": "^1.0.5",
     "sfdc-generate-data-dictionary": "^1.0.1",
     "sfdc-generate-package": "^2.1.0",
-    "sfdc-git-package": "^2.0.3",
+    "sfdc-git-package": "^2.0.4",
     "sfdc-pps-completion": "^1.0.2",
     "sfdc-pps-reconciliation": "^1.0.0",
     "sfdc-specified-test": "^1.0.1"
