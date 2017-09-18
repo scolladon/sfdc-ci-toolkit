@@ -3,7 +3,7 @@ CI Scripts for Salesforce projects
 
 This repository purpose is to centralized Continuous Integration scripts dedicated to the Salesforce platform.
 It allow you to build your app, sanitized your repository (profile and permission sets) and automate things for you.
-Is has been designed and built to be fast, modular and to run with just npm as dependencies.
+It has been designed and built to be fast, modular and to run with just npm as dependencies.
 
 You can make it run into a basic alpine-node docker image.
 You can easily add a taks to this script for your own needs.
