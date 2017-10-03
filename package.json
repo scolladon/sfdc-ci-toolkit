@@ -40,7 +40,7 @@
     "jsforce-metadata-tools": "^1.2.2",
     "sfdc-generate-codeclimate-coverage": "^1.0.5",
     "sfdc-generate-data-dictionary": "^1.0.1",
-    "sfdc-generate-package": "^2.1.0",
+    "sfdc-generate-package": "^2.1.2",
     "sfdc-git-package": "^2.0.6",
     "sfdc-pps-completion": "^1.0.2",
     "sfdc-pps-reconciliation": "^1.0.0",
