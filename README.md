@@ -116,7 +116,7 @@ $ git commit -m 'profile alignment'
 
 * **Incremental** : select the commit sha from which you want to compare and put it into a COMMIT variable into the .env file
 ```
-$ npm run prepare-package # Or if you have gulp globally installed: $ gulp prepare-package
+$ npm run partial-package # Or if you have gulp globally installed: $ gulp prepare-package
 $ git add src/package.xml src/destructive*
 $ git commit -m 'package creation'
 ```
