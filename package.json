@@ -18,7 +18,7 @@
     "postfull-build": "npm run move-tag",
     "predeploy": "gulp pre-deploy-script",
     "deploy": "gulp deploy",
-    "postdeploy": "gulp post-deploy-script",
+    "postdeploy": "npm run display-coverage && gulp post-deploy-script",
     "partial-package": "gulp prepare-package",
     "move-tag": "./movetag.sh",
     "partial-build": "npm run partial-package",
@@ -27,7 +27,8 @@
     "profile-completion": "gulp profile-completion",
     "profile-reconciliation": "gulp profile-reconciliation",
     "generate-package": "gulp generate-package",
-    "generate-data-dictionary": "gulp generate-data-dictionary"
+    "generate-data-dictionary": "gulp generate-data-dictionary",
+    "display-coverage": "gulp read-coverage"
   },
   "dependencies": {
     "envalid": "^3.1.1",
