@@ -2,11 +2,11 @@
 CI Scripts for Salesforce projects
 
 This repository purpose is to centralized Continuous Integration scripts dedicated to the Salesforce platform.
-It allow you to build your app, sanitized your repository (profile and permission sets) and automate things for you.
+It allows you to build your app, sanitized your repository (profile and permission sets) and automate things for you.
 It has been designed and built to be fast, modular and to run with just npm as dependencies.
 
 You can make it run into a basic alpine-node docker image.
-You can easily add a taks to this script for your own needs.
+You can easily add a tasks to this script for your own needs.
 
 Compatible and complementary to SalesforceDX
 
@@ -36,7 +36,7 @@ SFDC-ci-toolkit comes with handy npm scripts for CI :
 ```javascript
 "scripts": {
   "full-build": "npm run deploy",
-  "postfull-build": "nom run move-tag",
+  "postfull-build": "npm run move-tag",
   "predeploy": "gulp pre-deploy-script",
   "deploy": "gulp deploy",
   "postdeploy": "gulp post-deploy-script",
