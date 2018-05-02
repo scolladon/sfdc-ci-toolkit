@@ -12,7 +12,6 @@ module.exports = (gulp, plugins,options) => {
     }))
     .pipe(plugins.rename(DEPLOY_RESULT_FILE))
     .pipe(gulp.dest('.'));
-    console.log('test');
     if(status) {
       cb(status);
     }
