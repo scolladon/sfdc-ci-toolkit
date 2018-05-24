@@ -60,7 +60,7 @@ Here is the list of scripts with their description available in the toolkit
 * **generate-package** : Run it to generate your package.xml from your repository
 * **generate-data-dictionary** : Run it to generate your data dictionary from your Salesforce org
 * **pre-deploy-script** : Run it to run execute anonymous each script files contained into PRE_SCRIPT_PATH variable
-* **post-deply-script** : Run it to run execute anonymous each script files contained into POST_SCRIPT_PATH variable
+* **post-deploy-script** : Run it to run execute anonymous each script files contained into POST_SCRIPT_PATH variable
 * **prepare-package** : Run it to generate package.xml and destructiveChanges.xml by diffing the HEAD commit and the commit sha into COMMIT variable
 * **prepare-runtests** : Run it to generate SF_RUNTESTS based on the src/classes folder and the SF_TESTSUFFIX variable
 * **profile-completion** : Run it to complete your non admin profiles & permission sets with the removed user permissions
@@ -173,7 +173,7 @@ Type of value: float one decimal precision (ex: 39.0)
 Used in:
 * deploy
 * generate-package
-* post-deply-script
+* post-deploy-script
 * pre-deploy-script
 * post-deploy-script
 
@@ -182,7 +182,7 @@ Used for: connecting to Salesforce
 Type of value: string email format
 Used in:
 * deploy
-* post-deply-script
+* post-deploy-script
 * pre-deploy-script
 
 **SF_PASSWORD**
@@ -190,7 +190,7 @@ Used for: connecting to Salesforce
 Type of value: string
 Used in:
 * deploy
-* post-deply-script
+* post-deploy-script
 * pre-deploy-script
 
 **SF_SERVERURL**
@@ -198,7 +198,7 @@ Used for: connecting to Salesforce
 Type of value: string url format
 Used in:
 * deploy
-* post-deply-script
+* post-deploy-script
 * pre-deploy-script
 
 
@@ -221,7 +221,7 @@ Type of value: boolean
 Used in:
 * deploy
 * prepare-runtests
-* post-deply-script
+* post-deploy-script
 * pre-deploy-script
 
 **SF_TESTSUFFIX**
@@ -246,14 +246,14 @@ Used for: defining the path to the repository folder (the folder which contains 
 Type of value: string absolute or relative path from this folder
 Used in:
 * prepare-package
-* post-deply-script
+* post-deploy-script
 * pre-deploy-script
 
 **POST_SCRIPT_PATH**
 Used for: defining the path to the post script folder (the folder which contains the post scripts to execute anonymous)
 Type of value: string relative path from SF_REPO_PATH folder
 Used in:
-* post-deply-script
+* post-deploy-script
 
 **PRE_SCRIPT_PATH**
 Used for: defining the path to the pre script folder (the folder which contains the pre scripts to execute anonymous)
