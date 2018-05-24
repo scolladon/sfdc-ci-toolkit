@@ -111,7 +111,7 @@ Two way !
 ```
 $ npm run generate-package # Or if you have gulp globally installed: $ gulp generate-package
 $ git add src/package.xml
-$ git commit -m 'profile alignment'
+$ git commit -m 'package creation'
 ```
 
 * **Incremental** : select the commit sha from which you want to compare and put it into a COMMIT variable into the .env file
