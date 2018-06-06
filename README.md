@@ -114,7 +114,7 @@ $ git add src/package.xml
 $ git commit -m 'profile alignment'
 ```
 
-* **Incremental** : select the commit sha from which you want to compare and put it into a COMMIT variable into the .env file
+* **Incremental** : select the commit sha from which you want to compare and put it into a COMMIT variable into the .env file (you can use the CURRENT_BRANCH and COMPARE_BRANCH)
 ```
 $ npm run partial-package # Or if you have gulp globally installed: $ gulp prepare-package
 $ git add src/package.xml src/destructive*
@@ -262,7 +262,8 @@ Used in:
 * pre-deploy-script
 
 Here is the list of optional parameters with their default value :
-* BRANCH : git branch name (string) used in coverage prepare-package
+* CURRENT_BRANCH : git branch name (string) of the current branch used in coverage prepare-package
+* COMPARE_BRANCH : git branch name (string) of the compare branch used in coverage prepare-package
 * CODECLIMATE_REPO_TOKEN : code climate repo token (string) used in coverage
 * COMMIT : git commit id (string) used in coverage prepare-package
 * SF_ALLOWMISSINGFILES : (boolean) used in deploy. Default: true
