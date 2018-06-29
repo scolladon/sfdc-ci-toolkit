@@ -29,7 +29,8 @@
     "generate-package": "gulp generate-package",
     "generate-data-dictionary": "gulp generate-data-dictionary",
     "display-coverage": "gulp read-coverage",
-    "prepare-runtests": "gulp prepare-runtests"
+    "prepare-runtests": "gulp prepare-runtests",
+    "retrieve": "gulp retrieve"
   },
   "dependencies": {
     "envalid": "^3.1.1",
