@@ -33,6 +33,7 @@
     "retrieve": "gulp retrieve"
   },
   "dependencies": {
+    "decompress": "^4.0.0",
     "envalid": "^3.1.1",
     "gulp": "^3.9.1",
     "gulp-jsforce-exec-anon": "^1.1.0",
