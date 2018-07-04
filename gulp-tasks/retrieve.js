@@ -5,13 +5,11 @@ module.exports = (gulp, plugins, options) => {
   return cb => {
     let status = null;
     gulp.src(options.src + '/package.xml')
-    .pipe(retrieve(options).on('error', function(error) {
-      // we have an error
+    .pipe(retrieve(options).on('error', error => {
       status = error;
     }))
     .pipe(plugins.rename(RETRIEVE_RESULT_FILE))
-    .pipe(gulp.dest('.'))
-    ;
+    .pipe(gulp.dest('.'));
     if(status) {
       cb(status);
     }

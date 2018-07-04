@@ -1,6 +1,6 @@
 {
   "name": "sfdc-ci-toolkit",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "CI Scripts for Salesforce projects",
   "keyword": [
     "salesforce",
@@ -29,11 +29,10 @@
     "generate-package": "gulp generate-package",
     "generate-data-dictionary": "gulp generate-data-dictionary",
     "display-coverage": "gulp read-coverage",
-    "prepare-runtests": "gulp prepare-runtests",
-    "retrieve": "gulp retrieve"
+    "prepare-runtests": "gulp prepare-runtests"
   },
   "dependencies": {
-    "decompress": "^4.0.0",
+    "decompress": "^4.2.0",
     "envalid": "^3.1.1",
     "gulp": "^3.9.1",
     "gulp-jsforce-exec-anon": "^1.1.0",
