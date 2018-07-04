@@ -14,4 +14,4 @@ module.exports = (gulp, plugins, options) => {
       cb(status);
     }
   };
-};};
+};
