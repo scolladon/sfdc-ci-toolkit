@@ -49,7 +49,9 @@ SFDC-ci-toolkit comes with handy npm scripts for CI :
   "profile-reconciliation": "gulp profile-reconciliation",
   "generate-package": "gulp generate-package",
   "generate-data-dictionary": "gulp generate-data-dictionary",
-  "display-coverage": "gulp read-coverage"
+  "display-coverage": "gulp read-coverage",
+  "prepare-runtests": "gulp prepare-runtests",
+  "retrieve": "gulp retrieve"
 }
 ```
 Combined them smartly according to your need as a developer or as a release manager ;)
@@ -295,6 +297,7 @@ module.exports = (gulp plugins, options) => {
 
 ## Built With
 
+* [decompress](https://github.com/kevva/decompress) - Extracting archives made easy
 * [envalid](https://github.com/af/envalid) - Environment variable validation for Node.js.
 * [gulp](https://github.com/gulpjs/gulp) - The streaming build system.
 * [gulp-jsforce-exec-anon](https://github.com/scolladon/gulp-jsforce-exec-anon) - Execute anonymous using JSforce.
