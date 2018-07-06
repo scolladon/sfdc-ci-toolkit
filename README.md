@@ -52,10 +52,10 @@ SFDC-ci-toolkit comes with handy npm scripts for CI :
   "display-coverage": "gulp read-coverage",
   "prepare-runtests": "gulp prepare-runtests",
   "retrieve": "gulp retrieve",
-  "dataload-insert": "gulp dataload-insert",
-  "dataload-update": "gulp dataload-update",
-  "dataload-upsert": "gulp dataload-upsert",
-  "dataload-delete": "gulp dataload-delete"
+  "dataload-insert": "gulp dataload-insert (--concurrencyMode <Serial | Parallel>)",
+  "dataload-update": "gulp dataload-update (--concurrencyMode <Serial | Parallel>)",
+  "dataload-upsert": "gulp dataload-upsert --extIdField <myExtIdFieldName> (--concurrencyMode <Serial | Parallel>)",
+  "dataload-delete": "gulp dataload-delete (--concurrencyMode <Serial | Parallel>)"
 }
 ```
 Combined them smartly according to your need as a developer or as a release manager ;)
