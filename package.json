@@ -30,7 +30,11 @@
     "generate-data-dictionary": "gulp generate-data-dictionary",
     "display-coverage": "gulp read-coverage",
     "prepare-runtests": "gulp prepare-runtests",
-    "retrieve": "gulp retrieve"
+    "retrieve": "gulp retrieve",
+    "dataload-insert": "gulp dataload-insert",
+    "dataload-update": "gulp dataload-update",
+    "dataload-upsert": "gulp dataload-upsert",
+    "dataload-delete": "gulp dataload-delete"
   },
   "dependencies": {
     "decompress": "^4.2.0",
