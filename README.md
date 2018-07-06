@@ -51,7 +51,11 @@ SFDC-ci-toolkit comes with handy npm scripts for CI :
   "generate-data-dictionary": "gulp generate-data-dictionary",
   "display-coverage": "gulp read-coverage",
   "prepare-runtests": "gulp prepare-runtests",
-  "retrieve": "gulp retrieve"
+  "retrieve": "gulp retrieve",
+  "dataload-insert": "gulp dataload-insert",
+  "dataload-update": "gulp dataload-update",
+  "dataload-upsert": "gulp dataload-upsert",
+  "dataload-delete": "gulp dataload-delete"
 }
 ```
 Combined them smartly according to your need as a developer or as a release manager ;)
@@ -67,7 +71,13 @@ Here is the list of scripts with their description available in the toolkit
 * **prepare-runtests** : Run it to generate SF_RUNTESTS based on the src/classes folder and the SF_TESTSUFFIX variable
 * **profile-completion** : Run it to complete your non admin profiles & permission sets with the removed user permissions
 * **profile-reconciliation** : Run it to check the consistency of your repo and the profiles & permission sets definition into it
-* **display-coverage** : Run it after having deploy with test runned. It will display the code coverage.
+* **display-coverage** : Run it after having deploy with test runned. It will display the code coverage
+* **prepare-runtests** : Run it to prepare the test classes to run for your specified test deployment
+* **retrieve** : Run it to retrieve package.xml from Salesforce to your repo
+* **dataload-insert** : Run it to insert data from csv file
+* **dataload-update** : Run it to update data from csv file
+* **dataload-upsert** : Run it to upsert data from csv file
+* **dataload-delete** : Run it to delete data from csv file
 
 ## Usage Example
 Let's imagine you finalized the three first steps of [building a Conference Management app](https://trailhead.salesforce.com/en/projects/salesforce_developer_workshop/steps/creating_apex_class) in your sandbox and you want to deploy it to your dev org!
