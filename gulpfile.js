@@ -20,11 +20,9 @@ const path = require('path');
 
 const TASK_PATH = './gulp-tasks/'
 
-const lastParameters = [gulp,plugins,options];
-
 fs.readdirSync(TASK_PATH).forEach(file => {
   const task = path.basename(file, path.extname(file));
-  gulp.task(task, getTask([task,...lastParameters]))
+  gulp.task(task, getTask([task,gulp,plugins,options]))
 });
 
 module.exports = gulp;
