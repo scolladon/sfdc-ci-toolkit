@@ -6,13 +6,9 @@ module.exports = (gulp, plugins,options) => {
     let status = null;
     gulp.src(options.src+'/**')
     .pipe(plugins.zip('pkg.zip'))
-    .pipe(forceDeploy(options).on('error', function(error) {
-      status = error;
-    }))
+    .pipe(forceDeploy(options).on('error', error => status = error))
     .pipe(plugins.rename(DEPLOY_RESULT_FILE))
-    .pipe(gulp.dest('.'));
-    if(status) {
-      cb(status);
-    }
+    .pipe(gulp.dest(options.repo));
+    !!status ? cb(status) : cb()
   };
 };

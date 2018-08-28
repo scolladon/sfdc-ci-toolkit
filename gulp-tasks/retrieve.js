@@ -10,8 +10,6 @@ module.exports = (gulp, plugins, options) => {
     .pipe(retrieve(options).on('error', error => status = error))
     .pipe(plugins.rename(RETRIEVE_RESULT_FILE))
     .pipe(gulp.dest('.'))
-    if(!!status) {
-      cb(status);
-    }
+    !!status ? cb(status) : cb()
   };
 };

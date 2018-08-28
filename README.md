@@ -308,6 +308,7 @@ module.exports = (gulp plugins, options) => {
 ## Built With
 
 * [decompress](https://github.com/kevva/decompress) - Extracting archives made easy
+* [xml2js](https://github.com/Leonidas-from-XIV/node-xml2js) - XML to JavaScript object converter.
 * [envalid](https://github.com/af/envalid) - Environment variable validation for Node.js.
 * [gulp](https://github.com/gulpjs/gulp) - The streaming build system.
 * [gulp-jsforce-exec-anon](https://github.com/scolladon/gulp-jsforce-exec-anon) - Execute anonymous using JSforce.
@@ -315,7 +316,7 @@ module.exports = (gulp plugins, options) => {
 * [gulp-rename](https://github.com/hparra/gulp-rename) - Rename files easily.
 * [gulp-util](https://github.com/gulpjs/gulp-util) - Utilities for gulp plugins.
 * [gulp-zip](https://github.com/sindresorhus/gulp-zip) - ZIP compress files.
-* [jsforce-metadata-tools](https://github.com/jsforce/jsforce-metadata-tools) - Tools for deploying/retrieving package files using Metadata API via JSforce.
+* [sfdc-authent-delegate](https://github.com/scolladon/sfdc-authent-delegate) - Authentication delegate for Salesforce.
 * [sfdc-generate-codeclimate-coverage](https://github.com/scolladon/sfdc-generate-codeclimate-coverage) - Code coverage converter to lcov from deployment result.
 * [sfdc-generate-package](https://github.com/scolladon/sfdc-generate-package) - generate package.xml from source.
 * [sfdc-git-package](https://github.com/scolladon/sfdc-git-package) - Create Package.xml and destructiveChangesPre.xml from git diff between two commits.

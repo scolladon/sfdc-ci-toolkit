@@ -10,9 +10,10 @@ module.exports = (gulp, plugins,options) => {
     }
     let deployResult;
     try {
-      deployResult = JSON.parse(fs.readFileSync(options.repo + '/build' +DEPLOY_RESULT_FILE));
+      deployResult = JSON.parse(fs.readFileSync(options.repo + DEPLOY_RESULT_FILE));
     } catch(e) {
-      return cb(options.repo + '/build' +DEPLOY_RESULT_FILE+ ' do not exist');
+      console.log(e);
+      return cb(options.repo + DEPLOY_RESULT_FILE+ ' do not exist');
     }
     // Handle object instead of array for 1 element
     let totalLine = 0, lineNotCovered = 0, coverage = 0;
@@ -28,14 +29,16 @@ module.exports = (gulp, plugins,options) => {
       }
       let coverage = ((totalLine > 0 ? (totalLine - lineNotCovered) / totalLine : 0) * 100).toFixed(2);
       let att = [];
-      gutil.log(PLUGIN_NAME,'Code coverage: ' + coverage + '%');
+      let c = coverage < 75 ? gutil.colors.red : coverage < 90 ? gutil.colors.yellow : gutil.colors.green;
+      gutil.log(PLUGIN_NAME,'Code coverage: ' + c(coverage + '%'));
       if(deployResult.details.runTestResult.codeCoverageWarnings){
-        gutil.log(PLUGIN_NAME,'Warnings: ' + deployResult.details.runTestResult.codeCoverageWarnings.name + ': ' + deployResult.details.runTestResult.codeCoverageWarnings.message);
+        gutil.log(PLUGIN_NAME,gutil.colors.yellow('Warnings: ' + deployResult.details.runTestResult.codeCoverageWarnings.name + ': ' + deployResult.details.runTestResult.codeCoverageWarnings.message));
       }
       if(deployResult.details.runTestResult.failures){
-        gutil.log(PLUGIN_NAME,'Failures: ' + deployResult.details.runTestResult.failures.name + '.' + deployResult.details.runTestResult.failures.methodName + ': ' + deployResult.details.runTestResult.failures.message);
+        gutil.log(PLUGIN_NAME,gutil.colors.red('Failures: ' + deployResult.details.runTestResult.failures.name + '.' + deployResult.details.runTestResult.failures.methodName + ': ' + deployResult.details.runTestResult.failures.message));
       }
     }
+    cb()
   }
 };
 
