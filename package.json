@@ -34,7 +34,8 @@
     "dataload-insert": "gulp dataload-insert",
     "dataload-update": "gulp dataload-update",
     "dataload-upsert": "gulp dataload-upsert",
-    "dataload-delete": "gulp dataload-delete"
+    "dataload-delete": "gulp dataload-delete",
+    "oneline-profile-and-ps": "gulp oneline-profile-and-ps"
   },
   "dependencies": {
     "decompress": "^4.2.0",

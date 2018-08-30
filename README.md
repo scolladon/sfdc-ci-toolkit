@@ -56,6 +56,7 @@ SFDC-ci-toolkit comes with handy npm scripts for CI :
   "dataload-update": "gulp dataload-update (--concurrencyMode <Serial | Parallel>)",
   "dataload-upsert": "gulp dataload-upsert --extIdField <myExtIdFieldName> (--concurrencyMode <Serial | Parallel>)",
   "dataload-delete": "gulp dataload-delete (--concurrencyMode <Serial | Parallel>)"
+  "oneline-profile-and-ps": "gulp oneline-profile-and-ps"
 }
 ```
 Combined them smartly according to your need as a developer or as a release manager ;)
@@ -78,6 +79,7 @@ Here is the list of scripts with their description available in the toolkit
 * **dataload-update** : Run it to update data from csv file
 * **dataload-upsert** : Run it to upsert data from csv file
 * **dataload-delete** : Run it to delete data from csv file
+* **oneline-profile-and-ps** : Run it to one line profiles and permission sets
 
 ## Usage Example
 Let's imagine you finalized the three first steps of [building a Conference Management app](https://trailhead.salesforce.com/en/projects/salesforce_developer_workshop/steps/creating_apex_class) in your sandbox and you want to deploy it to your dev org!
