@@ -7,8 +7,8 @@ const PLUGIN_NAME = 'gulp-sfdc-' + scriptName;
 module.exports = (gulp, plugins,options) => {
   return cb => {
     sgp({
-      'to':'HEAD',
-      'from': options.branch+process.env.LAST_BUILD_TAG_SUFFIX,
+      'to':options.compareBranch,
+      'from': options.currentBranch+options.commit,
       'output':options.src,
       'apiVersion': options.version,
       'repo':options.repo

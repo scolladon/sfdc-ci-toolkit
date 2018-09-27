@@ -2,11 +2,11 @@
 CI Scripts for Salesforce projects
 
 This repository purpose is to centralized Continuous Integration scripts dedicated to the Salesforce platform.
-It allow you to build your app, sanitized your repository (profile and permission sets) and automate things for you.
-Is has been designed and built to be fast, modular and to run with just npm as dependencies.
+It allows you to build your app, sanitized your repository (profile and permission sets) and automate things for you.
+It has been designed and built to be fast, modular and to run with just npm as dependencies.
 
 You can make it run into a basic alpine-node docker image.
-You can easily add a taks to this script for your own needs.
+You can easily add a tasks to this script for your own needs.
 
 Compatible and complementary to SalesforceDX
 
@@ -36,7 +36,7 @@ SFDC-ci-toolkit comes with handy npm scripts for CI :
 ```javascript
 "scripts": {
   "full-build": "npm run deploy",
-  "postfull-build": "nom run move-tag",
+  "postfull-build": "npm run move-tag",
   "predeploy": "gulp pre-deploy-script",
   "deploy": "gulp deploy",
   "postdeploy": "gulp post-deploy-script",
@@ -48,7 +48,15 @@ SFDC-ci-toolkit comes with handy npm scripts for CI :
   "profile-completion": "gulp profile-completion",
   "profile-reconciliation": "gulp profile-reconciliation",
   "generate-package": "gulp generate-package",
-  "generate-data-dictionary": "gulp generate-data-dictionary"
+  "generate-data-dictionary": "gulp generate-data-dictionary",
+  "display-coverage": "gulp read-coverage",
+  "prepare-runtests": "gulp prepare-runtests",
+  "retrieve": "gulp retrieve",
+  "dataload-insert": "gulp dataload-insert (--concurrencyMode <Serial | Parallel>)",
+  "dataload-update": "gulp dataload-update (--concurrencyMode <Serial | Parallel>)",
+  "dataload-upsert": "gulp dataload-upsert --extIdField <myExtIdFieldName> (--concurrencyMode <Serial | Parallel>)",
+  "dataload-delete": "gulp dataload-delete (--concurrencyMode <Serial | Parallel>)"
+  "oneline-profile-and-ps": "gulp oneline-profile-and-ps"
 }
 ```
 Combined them smartly according to your need as a developer or as a release manager ;)
@@ -59,11 +67,19 @@ Here is the list of scripts with their description available in the toolkit
 * **generate-package** : Run it to generate your package.xml from your repository
 * **generate-data-dictionary** : Run it to generate your data dictionary from your Salesforce org
 * **pre-deploy-script** : Run it to run execute anonymous each script files contained into PRE_SCRIPT_PATH variable
-* **post-deply-script** : Run it to run execute anonymous each script files contained into POST_SCRIPT_PATH variable
+* **post-deploy-script** : Run it to run execute anonymous each script files contained into POST_SCRIPT_PATH variable
 * **prepare-package** : Run it to generate package.xml and destructiveChanges.xml by diffing the HEAD commit and the commit sha into COMMIT variable
 * **prepare-runtests** : Run it to generate SF_RUNTESTS based on the src/classes folder and the SF_TESTSUFFIX variable
 * **profile-completion** : Run it to complete your non admin profiles & permission sets with the removed user permissions
 * **profile-reconciliation** : Run it to check the consistency of your repo and the profiles & permission sets definition into it
+* **display-coverage** : Run it after having deploy with test runned. It will display the code coverage
+* **prepare-runtests** : Run it to prepare the test classes to run for your specified test deployment
+* **retrieve** : Run it to retrieve package.xml from Salesforce to your repo
+* **dataload-insert** : Run it to insert data from csv file
+* **dataload-update** : Run it to update data from csv file
+* **dataload-upsert** : Run it to upsert data from csv file
+* **dataload-delete** : Run it to delete data from csv file
+* **oneline-profile-and-ps** : Run it to one line profiles and permission sets
 
 ## Usage Example
 Let's imagine you finalized the three first steps of [building a Conference Management app](https://trailhead.salesforce.com/en/projects/salesforce_developer_workshop/steps/creating_apex_class) in your sandbox and you want to deploy it to your dev org!
@@ -109,12 +125,12 @@ Two way !
 ```
 $ npm run generate-package # Or if you have gulp globally installed: $ gulp generate-package
 $ git add src/package.xml
-$ git commit -m 'profile alignment'
+$ git commit -m 'package creation'
 ```
 
-* **Incremental** : select the commit sha from which you want to compare and put it into a COMMIT variable into the .env file
+* **Incremental** : select the commit sha from which you want to compare and put it into a COMMIT variable into the .env file (you can use the CURRENT_BRANCH and COMPARE_BRANCH)
 ```
-$ npm run prepare-package # Or if you have gulp globally installed: $ gulp prepare-package
+$ npm run partial-package # Or if you have gulp globally installed: $ gulp prepare-package
 $ git add src/package.xml src/destructive*
 $ git commit -m 'package creation'
 ```
@@ -171,7 +187,7 @@ Type of value: float one decimal precision (ex: 39.0)
 Used in:
 * deploy
 * generate-package
-* post-deply-script
+* post-deploy-script
 * pre-deploy-script
 * post-deploy-script
 
@@ -180,7 +196,7 @@ Used for: connecting to Salesforce
 Type of value: string email format
 Used in:
 * deploy
-* post-deply-script
+* post-deploy-script
 * pre-deploy-script
 
 **SF_PASSWORD**
@@ -188,7 +204,7 @@ Used for: connecting to Salesforce
 Type of value: string
 Used in:
 * deploy
-* post-deply-script
+* post-deploy-script
 * pre-deploy-script
 
 **SF_SERVERURL**
@@ -196,7 +212,7 @@ Used for: connecting to Salesforce
 Type of value: string url format
 Used in:
 * deploy
-* post-deply-script
+* post-deploy-script
 * pre-deploy-script
 
 
@@ -219,7 +235,7 @@ Type of value: boolean
 Used in:
 * deploy
 * prepare-runtests
-* post-deply-script
+* post-deploy-script
 * pre-deploy-script
 
 **SF_TESTSUFFIX**
@@ -244,14 +260,14 @@ Used for: defining the path to the repository folder (the folder which contains 
 Type of value: string absolute or relative path from this folder
 Used in:
 * prepare-package
-* post-deply-script
+* post-deploy-script
 * pre-deploy-script
 
 **POST_SCRIPT_PATH**
 Used for: defining the path to the post script folder (the folder which contains the post scripts to execute anonymous)
 Type of value: string relative path from SF_REPO_PATH folder
 Used in:
-* post-deply-script
+* post-deploy-script
 
 **PRE_SCRIPT_PATH**
 Used for: defining the path to the pre script folder (the folder which contains the pre scripts to execute anonymous)
@@ -260,7 +276,8 @@ Used in:
 * pre-deploy-script
 
 Here is the list of optional parameters with their default value :
-* BRANCH : git branch name (string) used in coverage prepare-package
+* CURRENT_BRANCH : git branch name (string) of the current branch used in coverage prepare-package
+* COMPARE_BRANCH : git branch name (string) of the compare branch used in coverage prepare-package
 * CODECLIMATE_REPO_TOKEN : code climate repo token (string) used in coverage
 * COMMIT : git commit id (string) used in coverage prepare-package
 * SF_ALLOWMISSINGFILES : (boolean) used in deploy. Default: true
@@ -292,6 +309,8 @@ module.exports = (gulp plugins, options) => {
 
 ## Built With
 
+* [decompress](https://github.com/kevva/decompress) - Extracting archives made easy
+* [xml2js](https://github.com/Leonidas-from-XIV/node-xml2js) - XML to JavaScript object converter.
 * [envalid](https://github.com/af/envalid) - Environment variable validation for Node.js.
 * [gulp](https://github.com/gulpjs/gulp) - The streaming build system.
 * [gulp-jsforce-exec-anon](https://github.com/scolladon/gulp-jsforce-exec-anon) - Execute anonymous using JSforce.
@@ -299,7 +318,7 @@ module.exports = (gulp plugins, options) => {
 * [gulp-rename](https://github.com/hparra/gulp-rename) - Rename files easily.
 * [gulp-util](https://github.com/gulpjs/gulp-util) - Utilities for gulp plugins.
 * [gulp-zip](https://github.com/sindresorhus/gulp-zip) - ZIP compress files.
-* [jsforce-metadata-tools](https://github.com/jsforce/jsforce-metadata-tools) - Tools for deploying/retrieving package files using Metadata API via JSforce.
+* [sfdc-authent-delegate](https://github.com/scolladon/sfdc-authent-delegate) - Authentication delegate for Salesforce.
 * [sfdc-generate-codeclimate-coverage](https://github.com/scolladon/sfdc-generate-codeclimate-coverage) - Code coverage converter to lcov from deployment result.
 * [sfdc-generate-package](https://github.com/scolladon/sfdc-generate-package) - generate package.xml from source.
 * [sfdc-git-package](https://github.com/scolladon/sfdc-git-package) - Create Package.xml and destructiveChangesPre.xml from git diff between two commits.
