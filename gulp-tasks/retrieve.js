@@ -7,9 +7,9 @@ module.exports = (gulp, plugins, options) => {
   return cb => {
     let status = null;
     gulp.src(options.src + '/package.xml')
-    .pipe(retrieve(options).on('error', error => status = error))
+    .pipe(retrieve(options).on('error', cb))
     .pipe(plugins.rename(RETRIEVE_RESULT_FILE))
     .pipe(gulp.dest('.'))
-    !!status ? cb(status) : cb()
+    .on('end',cb);
   };
 };
