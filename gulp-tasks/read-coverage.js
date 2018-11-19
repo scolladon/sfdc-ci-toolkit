@@ -12,8 +12,10 @@ module.exports = (gulp, plugins,options) => {
     try {
       deployResult = JSON.parse(fs.readFileSync(options.repo + DEPLOY_RESULT_FILE));
     } catch(e) {
-      console.log(e);
       return cb(options.repo + DEPLOY_RESULT_FILE+ ' do not exist');
+    }
+    if(typeof deployResult.details.runTestResult.codeCoverage === 'undefined' || deployResult.details.runTestResult.codeCoverage === null) {
+      return cb(null,'No Code Coverage data');
     }
     // Handle object instead of array for 1 element
     let totalLine = 0, lineNotCovered = 0, coverage = 0;
