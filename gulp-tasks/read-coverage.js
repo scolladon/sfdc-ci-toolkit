@@ -14,9 +14,6 @@ module.exports = (gulp, plugins,options) => {
     } catch(e) {
       return cb(options.repo + DEPLOY_RESULT_FILE+ ' do not exist');
     }
-    if(typeof deployResult.details.runTestResult.codeCoverage === 'undefined' || deployResult.details.runTestResult.codeCoverage === null) {
-      return cb(null,'No Code Coverage data');
-    }
     // Handle object instead of array for 1 element
     let totalLine = 0, lineNotCovered = 0, coverage = 0;
     if(deployResult.numberTestsTotal > 0) {
@@ -25,9 +22,12 @@ module.exports = (gulp, plugins,options) => {
           totalLine += +j.numLocations;
           lineNotCovered += +j.numLocationsNotCovered;
         }
-      } else {
+      } else if(typeof deployResult.details.runTestResult.codeCoverage.numLocations !== 'undefined' && deployResult.details.runTestResult.codeCoverage.numLocations !== null) {
         totalLine += +deployResult.details.runTestResult.codeCoverage.numLocations;
         lineNotCovered += +deployResult.details.runTestResult.codeCoverage.numLocationsNotCovered;
+      } else {
+        gutil.log(PLUGIN_NAME,'No Code Coverage data');
+        cb(null,'No Code Coverage data');
       }
       let coverage = ((totalLine > 0 ? (totalLine - lineNotCovered) / totalLine : 0) * 100).toFixed(2);
       let att = [];
