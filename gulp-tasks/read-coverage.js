@@ -27,7 +27,7 @@ module.exports = (gulp, plugins,options) => {
         lineNotCovered += +deployResult.details.runTestResult.codeCoverage.numLocationsNotCovered;
       } else {
         gutil.log(PLUGIN_NAME,'No Code Coverage data');
-        cb(null,'No Code Coverage data');
+        return cb(null,'No Code Coverage data');
       }
       let coverage = ((totalLine > 0 ? (totalLine - lineNotCovered) / totalLine : 0) * 100).toFixed(2);
       let att = [];
