@@ -22,7 +22,7 @@ module.exports = (gulp, plugins,options) => {
           totalLine += +j.numLocations;
           lineNotCovered += +j.numLocationsNotCovered;
         }
-      } else if(typeof deployResult.details.runTestResult.codeCoverage.numLocations !== 'undefined' && deployResult.details.runTestResult.codeCoverage.numLocations !== null) {
+      } else if(typeof deployResult.details.runTestResult.codeCoverage !== 'undefined' && typeof deployResult.details.runTestResult.codeCoverage !== null && typeof deployResult.details.runTestResult.codeCoverage.numLocations !== 'undefined' && deployResult.details.runTestResult.codeCoverage.numLocations !== null) {
         totalLine += +deployResult.details.runTestResult.codeCoverage.numLocations;
         lineNotCovered += +deployResult.details.runTestResult.codeCoverage.numLocationsNotCovered;
       } else {
