@@ -4,7 +4,8 @@ const gutilLogCurried = require('../lib/utils/gutil-log-currified');
 const path = require('path');
 const scriptName = path.basename(__filename);
 const PLUGIN_NAME = 'gulp-sfdc-' + scriptName;
-const OUTPUT_COVERAGE = 'coverage.json'
+const OUTPUT_COVERAGE = 'coverage.json';
+const DEPLOY_RESULT_FILE = './deployResult.json';
 
 module.exports = (gulp, plugins,options) => {
   return cb => {
