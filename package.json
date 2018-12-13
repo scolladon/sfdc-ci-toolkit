@@ -1,6 +1,6 @@
 {
   "name": "sfdc-ci-toolkit",
-  "version": "2.2.0",
+  "version": "2.2.10",
   "description": "CI Scripts for Salesforce projects",
   "keyword": [
     "salesforce",
@@ -50,12 +50,12 @@
     "sfdc-authent-delegate": "^1.0.2",
     "sfdc-generate-codeclimate-coverage": "^1.0.5",
     "sfdc-generate-data-dictionary": "^1.0.1",
-    "sfdc-generate-package": "^2.2.4",
+    "sfdc-generate-package": "^2.5.0",
     "sfdc-git-package": "^2.0.8",
     "sfdc-pps-completion": "^1.0.2",
     "sfdc-pps-reconciliation": "^1.0.0",
     "sfdc-specified-test": "^1.0.1",
-    "through2": "^2.0.3",
+    "through2": "^2.0.5",
     "xml2js": "^0.4.19"
   }
 }

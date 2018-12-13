@@ -28,7 +28,7 @@ const online = () => {
       .toString('utf8')
       .replace(/\t/g,'    ')
       .replace(/\r/,'')
-      .replace(/\n(    ){2,}/g,'')
+      .replace(/\n {8,}/g,'')
       .replace(/\n    <\//g,'<\/')
       ,'utf8'
     )

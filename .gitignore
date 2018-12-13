@@ -4,3 +4,4 @@ yarn.lock
 npm-debug.log
 .env
 *Result.json
+.xyconfig/
