@@ -1,6 +1,7 @@
 const fs = require('fs');
 const DEPLOY_RESULT_FILE = '/deployResult.json';
-var gutil = require('gulp-util');
+const log = require('fancy-log');
+const c = require('ansi-colors');
 const PLUGIN_NAME = 'gulp-sfdc-read-coverage';
 
 module.exports = (gulp, plugins,options) => {
@@ -26,18 +27,18 @@ module.exports = (gulp, plugins,options) => {
         totalLine += +deployResult.details.runTestResult.codeCoverage.numLocations;
         lineNotCovered += +deployResult.details.runTestResult.codeCoverage.numLocationsNotCovered;
       } else {
-        gutil.log(PLUGIN_NAME,'No Code Coverage data');
+        log(PLUGIN_NAME,'No Code Coverage data');
         return cb(null,'No Code Coverage data');
       }
       let coverage = ((totalLine > 0 ? (totalLine - lineNotCovered) / totalLine : 0) * 100).toFixed(2);
       let att = [];
-      let c = coverage < 75 ? gutil.colors.red : coverage < 90 ? gutil.colors.yellow : gutil.colors.green;
-      gutil.log(PLUGIN_NAME,'Code coverage: ' + c(coverage + '%'));
+      let color = coverage < 75 ? c.red : coverage < 90 ? c.yellow : c.green;
+      log(PLUGIN_NAME,'Code coverage: ' + color(coverage + '%'));
       if(deployResult.details.runTestResult.codeCoverageWarnings){
-        gutil.log(PLUGIN_NAME,gutil.colors.yellow('Warnings: ' + deployResult.details.runTestResult.codeCoverageWarnings.name + ': ' + deployResult.details.runTestResult.codeCoverageWarnings.message));
+        log(PLUGIN_NAME,c.yellow('Warnings: ' + deployResult.details.runTestResult.codeCoverageWarnings.name + ': ' + deployResult.details.runTestResult.codeCoverageWarnings.message));
       }
       if(deployResult.details.runTestResult.failures){
-        gutil.log(PLUGIN_NAME,gutil.colors.red('Failures: ' + deployResult.details.runTestResult.failures.name + '.' + deployResult.details.runTestResult.failures.methodName + ': ' + deployResult.details.runTestResult.failures.message));
+        log(PLUGIN_NAME,c.red('Failures: ' + deployResult.details.runTestResult.failures.name + '.' + deployResult.details.runTestResult.failures.methodName + ': ' + deployResult.details.runTestResult.failures.message));
       }
     }
     cb()

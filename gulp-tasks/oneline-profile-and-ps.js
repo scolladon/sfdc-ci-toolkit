@@ -1,5 +1,7 @@
 const through = require('through2')
-      ,gutil = require('gulp-util')
+      ,PluginError = require('plugin-error')
+      ,log = require('fancy-log')
+      ,c = require('ansi-colors');
       ,path = require('path')
       ,scriptName = path.basename(__filename)
       ,PLUGIN_NAME = scriptName.replace(/\.js$/,'');
@@ -21,7 +23,7 @@ const online = () => {
       return callback(null, file);
     }
     if (file.isStream()) {
-      return callback(new gutil.PluginError(PLUGIN_NAME, 'Stream input is not supported'));
+      return callback(new PluginError(PLUGIN_NAME, 'Stream input is not supported'));
     }
     file.contents = Buffer.from(
       file.contents
@@ -32,7 +34,7 @@ const online = () => {
       .replace(/\n    <\//g,'<\/')
       ,'utf8'
     )
-    gutil.log(PLUGIN_NAME, path.basename(file.path) + ' successfuly onelined ', gutil.colors.green(':)'))
+    log(PLUGIN_NAME, path.basename(file.path) + ' successfuly onelined ', c.green(':)'))
     return callback(null,file);
   });
 }

@@ -1,8 +1,6 @@
 const RETRIEVE_RESULT_FILE = './retrieveResult.json';
 const retrieve = require('../lib/plugins/gulp-jsforce-retrieve');
 
-
-
 module.exports = (gulp, plugins, options) => {
   return cb => {
     let status = null;
