@@ -309,23 +309,25 @@ module.exports = (gulp plugins, options) => {
 
 ## Built With
 
+* [ansi-colors](https://github.com/doowb/ansi-colors) - Easily add ANSI colors to your text and symbols in the terminal. Used by webpack, gulp, and many others!
 * [decompress](https://github.com/kevva/decompress) - Extracting archives made easy
-* [xml2js](https://github.com/Leonidas-from-XIV/node-xml2js) - XML to JavaScript object converter.
 * [envalid](https://github.com/af/envalid) - Environment variable validation for Node.js.
+* [fancy-log](https://github.com/gulpjs/fancy-log) - Log things, prefixed with a timestamp.
 * [gulp](https://github.com/gulpjs/gulp) - The streaming build system.
 * [gulp-jsforce-exec-anon](https://github.com/scolladon/gulp-jsforce-exec-anon) - Execute anonymous using JSforce.
 * [gulp-load-plugins](https://github.com/jackfranklin/gulp-load-plugins) - Automatically load in gulp plugins.
 * [gulp-rename](https://github.com/hparra/gulp-rename) - Rename files easily.
-* [gulp-util](https://github.com/gulpjs/gulp-util) - Utilities for gulp plugins.
 * [gulp-zip](https://github.com/sindresorhus/gulp-zip) - ZIP compress files.
+* [minimist](https://github.com/substack/minimist) - parse argument options
 * [sfdc-authent-delegate](https://github.com/scolladon/sfdc-authent-delegate) - Authentication delegate for Salesforce.
 * [sfdc-generate-codeclimate-coverage](https://github.com/scolladon/sfdc-generate-codeclimate-coverage) - Code coverage converter to lcov from deployment result.
+* [sfdc-generate-data-dictionary](https://github.com/gavignon/sfdc-generate-data-dictionary) - Generate data dictionary from a Salesforce Org.
 * [sfdc-generate-package](https://github.com/scolladon/sfdc-generate-package) - generate package.xml from source.
 * [sfdc-git-package](https://github.com/scolladon/sfdc-git-package) - Create Package.xml and destructiveChangesPre.xml from git diff between two commits.
 * [sfdc-pps-completion](https://github.com/scolladon/sfdc-pps-completion) - Profile & Permission Set user permission completion.
 * [sfdc-pps-reconciliation](https://github.com/scolladon/sfdc-pps-reconciliation) - Display inconsistency between sources and profile & permission set.
 * [sfdc-specified-test](https://github.com/scolladon/sfdc-specified-test) - Salesforce specified test generation.
-* [sfdc-generate-data-dictionary](https://github.com/gavignon/sfdc-generate-data-dictionary) - Generate data dictionary from a Salesforce Org.
+* [xml2js](https://github.com/Leonidas-from-XIV/node-xml2js) - XML to JavaScript object converter.
 
 ## Versioning
 
