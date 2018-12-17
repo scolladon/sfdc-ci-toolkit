@@ -81,7 +81,7 @@ Here is the list of scripts with their description available in the toolkit
 * **dataload-upsert** : Run it to upsert data from csv file
 * **dataload-delete** : Run it to delete data from csv file
 * **oneline-profile-and-ps** : Run it to one line profiles and permission sets
-* **oneline-profile-and-ps** : Run it to check the current environment config used (if you have multiple .env files)
+* **env-info** : Run it to check the current environment config used (if you have multiple .env files)
 
 ## Usage Example
 Let's imagine you finalized the three first steps of [building a Conference Management app](https://trailhead.salesforce.com/en/projects/salesforce_developer_workshop/steps/creating_apex_class) in your sandbox and you want to deploy it to your dev org!
