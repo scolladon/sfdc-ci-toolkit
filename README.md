@@ -183,6 +183,9 @@ copy the .env_sample file to a .env file in the root directory.
 It contains the definition of each required parameters with aen example value.
 Here is what each line is used for and where:
 
+You can optionnaly have multiple conf files.
+In that case, initialize the SF_CONF_PATH env. variable with the path of the file you want to use.
+
 **SF_VERSION**
 Used for: defining the Salesforce API version used
 Type of value: float one decimal precision (ex: 39.0)
