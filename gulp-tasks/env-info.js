@@ -1,6 +1,8 @@
+const log = require('fancy-log');
+
 module.exports = (gulp, plugins,options) => {
   return cb => {
-    console.log('Options: ' + JSON.stringify(options));
+    log.info('Options: ' + JSON.stringify(options, undefined, 2));
     cb();
   };
 };
