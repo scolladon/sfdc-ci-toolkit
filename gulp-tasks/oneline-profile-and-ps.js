@@ -1,7 +1,7 @@
 const through = require('through2')
       ,PluginError = require('plugin-error')
       ,log = require('fancy-log')
-      ,c = require('ansi-colors');
+      ,c = require('ansi-colors')
       ,path = require('path')
       ,scriptName = path.basename(__filename)
       ,PLUGIN_NAME = scriptName.replace(/\.js$/,'');
