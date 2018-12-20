@@ -5,14 +5,14 @@ const path = require('path');
 const scriptName = path.basename(__filename);
 const PLUGIN_NAME = 'gulp-sfdc-' + scriptName;
 const OUTPUT_COVERAGE = 'coverage.json';
-const DEPLOY_RESULT_FILE = './deployResult.json';
+const DEPLOY_RESULT_FILE = '/deployResult.json';
 
 module.exports = (gulp, plugins,options) => {
   return cb => {
     if(options.testLevel === 'NoTestRun') {
       return cb();
     }
-    return gulp.src(DEPLOY_RESULT_FILE)
+    return gulp.src(options.repo + DEPLOY_RESULT_FILE)
     .pipe(
       through.obj((file, enc, callback) => {
         sgc({
