@@ -8,7 +8,7 @@ module.exports = (gulp, plugins,options) => {
   return cb => {
     sgp({
       'to':options.compareBranch,
-      'from': options.currentBranch+options.commit,
+      'from': options.currentBranch,
       'output':options.src,
       'apiVersion': options.version,
       'repo':options.repo
