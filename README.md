@@ -81,6 +81,7 @@ Here is the list of scripts with their description available in the toolkit
 * **dataload-upsert** : Run it to upsert data from csv file
 * **dataload-delete** : Run it to delete data from csv file
 * **oneline-profile-and-ps** : Run it to one line profiles and permission sets
+* **remove-user-permissions** : Run it to remove userPermissions in profiles and permission sets
 * **env-info** : Run it to check the current environment config used (if you have multiple .env files)
 
 ## Usage Example
