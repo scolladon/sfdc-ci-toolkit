@@ -31,7 +31,7 @@ const removeUserPermissions = () => {
       .replace(/\s*<userPermissions>.*<\/userPermissions>/gs,'')
       ,'utf8'
     )
-    log(PLUGIN_NAME, path.basename(file.path) + ' successfuly onelined ', c.green(':)'))
+    log(PLUGIN_NAME, path.basename(file.path) + ' user permissions successfuly removed ', c.green(':)'))
     return callback(null,file);
   });
 }
