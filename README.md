@@ -63,6 +63,7 @@ SFDC-ci-toolkit comes with handy npm scripts for CI :
 Combined them smartly according to your need as a developer or as a release manager ;)
 
 Here is the list of scripts with their description available in the toolkit
+* **checkout-package** : Run it to check the file in the target branch from your package.xml. ex : gulp checkout-package --branch master
 * **coverage** : Run it just after having deployed with the RunLocalTests. It will gather the coverage and translate it to lcov format into coverage.json file
 * **deploy** : Run it to deploy your repo to Salesforce
 * **generate-package** : Run it to generate your package.xml from your repository
