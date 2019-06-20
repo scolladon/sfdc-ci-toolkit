@@ -4,6 +4,7 @@ const output = 'checkout.sh';
 const scriptName = path.basename(__filename);
 const PLUGIN_NAME = 'gulp-sfdc-' + scriptName;
 const xml2js = require('xml2js');
+const metadata = require ('../lib/utils/describe-metadata');
 
 module.exports = (gulp, plugins,options) => {
   const branch = process.argv[process.argv.length-1];
@@ -35,8 +36,10 @@ checkout = (branch) => {
     .then(package=>{
       package.Package.types.forEach(type=>{
         type.members.forEach(member=>{
-          commandLines.add(`git checkout ${branch} -- src/${metadataMapping[type.name]}/${member.split('.')[0]}.${metadataMapping[type.name].slice(0,metadataMapping[type.name].length-1)}`)
-          commandLines.add(`git checkout ${branch} -- src/${metadataMapping[type.name]}/${member.split('.')[0]}${metadataMapping[type.name].slice(0,metadataMapping[type.name].length-1)}-meta.xml`)
+          commandLines.add(`git checkout ${branch} -- src/${metadata[type.name].directoryName}/${member.split('.')[0]}.${metadata[type.name].suffix}`)
+          if(metadata[type.name].metaFile === true) {
+            commandLines.add(`git checkout ${branch} -- src/${metadata[type.name].directoryName}/${member.split('.')[0]}.${metadata[type.name].suffix}-meta.xml`)
+          }
         })
       })
       file.contents =  Buffer.from([...commandLines].join('\n'), 'utf8');
@@ -52,80 +55,3 @@ const parseStringAsync = (xmlContent) => {
   });
   return promise;
 };
-
-const metadataMapping = {
-  "CustomPermission":"customPermissions",
-  "CustomLabels":"labels",
-  "StaticResource":"staticresources",
-  "Scontrol":"scontrols",
-  "ApexComponent":"components",
-  "CustomMetadata":"customMetadata",
-  "GlobalValueSet":"globalValueSets",
-  "GlobalValueSetTranslation":"globalValueSetTranslations",
-  "PathAssistant":"pathAssistants",
-  "StandardValueSet":"standardValueSets",
-  "StandardValueSetTranslation":"standardValueSetTranslations",
-  "Translations":"translations",
-  "ApexPage":"pages",
-  "Queue":"queues",
-  "CustomField":"objects",
-  "CustomObject":"objects",
-  "ReportType":"reportTypes",
-  "Report":"reports",
-  "Dashboard":"dashboards",
-  "AnalyticSnapshot":"analyticSnapshots",
-  "Layout":"layouts",
-  "Portal":"portals",
-  "Document":"documents",
-  "CustomPageWebLink":"weblinks",
-  "QuickAction":"quickActions",
-  "FlexiPage":"flexipages",
-  "CustomTab":"tabs",
-  "CustomApplicationComponent":"customApplicationComponents",
-  "CustomApplication":"applications",
-  "Letterhead":"letterhead",
-  "EmailTemplate":"email",
-  "Workflow":"workflows",
-  "AssignmentRules":"assignmentRules",
-  "AutoResponseRules":"autoResponseRules",
-  "EscalationRules":"escalationRules",
-  "Role":"roles",
-  "Group":"groups",
-  "PostTemplate":"postTemplates",
-  "ApprovalProcess":"approvalProcesses",
-  "HomePageComponent":"homePageComponents",
-  "HomePageLayout":"homePageLayouts",
-  "CustomObjectTranslation":"objectTranslations",
-  "Flow":"flows",
-  "ApexClass":"classes",
-  "ApexTrigger":"triggers",
-  "Profile":"profiles",
-  "PermissionSet":"permissionsets",
-  "DataCategoryGroup":"datacategorygroups",
-  "RemoteSiteSetting":"remoteSiteSettings",
-  "AuthProvider":"authproviders",
-  "LeadSharingRules":"leadSharingRules",
-  "CampaignSharingRules":"campaignSharingRules",
-  "CaseSharingRules":"caseSharingRules",
-  "ContactSharingRules":"contactSharingRules",
-  "OpportunitySharingRules":"opportunitySharingRules",
-  "AccountSharingRules":"accountSharingRules",
-  "CustomObjectSharingRules":"customObjectSharingRules",
-  "Community":"communities",
-  "CallCenter":"callCenters",
-  "ConnectedApp":"connectedApps",
-  "SamlSsoConfig":"samlssoconfigs",
-  "SynonymDictionary":"synonymDictionaries",
-  "Settings":"settings",
-  "AuraDefinitionBundle":"aura",
-  "LightningComponentBundle":"lwc",
-  "SharingRules":"sharingRules",
-  "ContentAsset":"contentassets",
-  "Network":"networks",
-  "SiteDotCom":"siteDotComSites",
-  "FlowDefinition":"flowDefinitions",
-  "MatchingRules":"matchingRules",
-  "TopicsForObjects":"topicsforobjects",
-  "PlatformCachePartition":"cachePartitions",
-  "DuplicateRule":"duplicateRules"
-}
